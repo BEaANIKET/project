@@ -28,7 +28,7 @@ function Navigation({ darkMode, toggleDarkMode }: NavigationProps) {
 
   return (
     <nav className={`fixed top-0 w-full transition-all duration-100 bg-white dark:bg-gray-900 backdrop-blur-sm z-50 border-b dark:border-gray-800`}>
-      <div className="container mx-auto px-6 pr-4 py-4 relative">
+      <div className="container mx-auto px-2 py-3 relative">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             AniketChaturvedi
@@ -62,7 +62,7 @@ function Navigation({ darkMode, toggleDarkMode }: NavigationProps) {
             )}
           </div>
 
-          <div className="flex items-center gap-6 pr-8 lg:pr-0">
+          <div className="flex items-center gap-6  lg:pr-0">
             <button
               onClick={toggleDarkMode}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -96,7 +96,7 @@ function Navigation({ darkMode, toggleDarkMode }: NavigationProps) {
 
         {/* Mobile Menu Panel */}
         <div
-          className={`absolute lg:hidden top-0 right-0 h-screen w-3/4 max-w-xs bg-white dark:bg-gray-900 shadow-lg z-50 transform transition-transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`absolute lg:hidden top-0 right-0 h-[100dvh] w-3/4 max-w-xs bg-white dark:bg-gray-900 shadow-lg z-50 transform transition-transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
         >
           <div className="p-6 flex flex-col h-full space-y-6">

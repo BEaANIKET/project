@@ -99,13 +99,13 @@ function App({ darkMode, setDarkMode, toggleDarkMode }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!resume) {
+      if (!resume || resume.length === 0) {
         await getResume();
       }
       if (!projects || projects.length === 0) {
         await getProjects();
       }
-      if (!blogs) {
+      if (!blogs || blogs.length === 0) {
         await getBlogs();
       }
     };
@@ -188,10 +188,10 @@ function App({ darkMode, setDarkMode, toggleDarkMode }) {
         <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
         {/* Hero Section */}
-        <section id="home" className=" min-h-[100dvh] pt-8 md:pt-0 max-h-[1200px] flex justify-start items-center ">
+        <section id="home" className=" min-h-[100dvh] pb-8 pt-8 md:pt-0 max-h-[1200px] flex justify-start items-center ">
           <div className="container mx-auto px-6">
             <AnimatedSection>
-              <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="flex flex-col lg:flex-row items-center">
                 <div className="lg:w-1/2">
                   <h1 className="text-4xl lg:text-6xl font-bold mb-6">
                     Full-Stack Developer
@@ -217,7 +217,7 @@ function App({ darkMode, setDarkMode, toggleDarkMode }) {
                     </a>
                   </div>
                 </div>
-                <div className="lg:w-1/2">
+                <div className="lg:w-1/2  ">
                   <img
                     src={aniketlogo}
                     alt="Profile"
@@ -470,7 +470,7 @@ function App({ darkMode, setDarkMode, toggleDarkMode }) {
                     <a
                       onClick={() => navigateTo(blog.link)}
                       target='blank'
-                      className="mt-4 inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+                      className="mt-4 cursor-pointer inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline"
                     >
                       Read More <ChevronRight size={16} className="ml-2" />
                     </a>
@@ -519,7 +519,7 @@ function App({ darkMode, setDarkMode, toggleDarkMode }) {
                     </div>
                     <p className="text-gray-600 dark:text-gray-300 flex-grow">"{testimonial.feedback}"</p>
                     <div className="mt-4 flex items-center justify-between">
-                      <span className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</span>
+                      <span className="text-sm text-gray-500 dark:text-gray-400 text-nowrap truncate ">{testimonial.role}</span>
                       <div className="flex">
                         {Array.from({ length: Math.round(testimonial.rating) }).map((_, i) => (
                           <Star key={i} className="w-4 h-4 text-yellow-400" />

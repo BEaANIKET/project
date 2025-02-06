@@ -347,11 +347,6 @@ function App({ darkMode, setDarkMode, toggleDarkMode }) {
                   skills: ["AWS", "Docker", "GitHub Actions", "Linux", "CI/CD"]
                 },
                 {
-                  icon: <ShoppingCart className="w-8 h-8 text-yellow-600" />,
-                  title: "E-commerce Tech",
-                  skills: ["Redux", "Razorpay", "MongoDB Aggregations"]
-                },
-                {
                   icon: <Code className="w-8 h-8 text-gray-600" />,
                   title: "Version Control",
                   skills: ["Git", "GitHub"]

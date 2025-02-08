@@ -6,7 +6,8 @@ const initialState = {
     projects: [],
     skills: [],
     blogs: [],
-    allProject: []
+    allProject: [],
+    selecteProject: [],
 }
 
 const dataSlices = createSlice({
@@ -27,9 +28,12 @@ const dataSlices = createSlice({
         },
         setAllProject: (state, action) => {
             state.allProject = action.payload
-        }
+        },
+        setSelectedProject: (state, action) => {
+            state.selecteProject = action.payload
+        },
     }
 })
 
-export const { setResume, setProject, setSkills, setBlogs, setAllProject } = dataSlices.actions
+export const { setResume, setProject, setSkills, setBlogs, setAllProject, setSelectedProject } = dataSlices.actions
 export default dataSlices.reducer

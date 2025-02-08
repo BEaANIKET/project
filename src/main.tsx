@@ -8,6 +8,7 @@ import './index.css';
 import { Provider } from 'react-redux';
 import { store } from './store/store.ts'
 import { Toaster } from 'react-hot-toast';
+import ProjectDetails from './pages/ProjectDetails.tsx';
 const Main = () => {
   const [darkMode, setDarkMode] = useState(true);
 
@@ -23,6 +24,7 @@ const Main = () => {
               <Route path="/" element={<App darkMode={darkMode} setDarkMode={setDarkMode} toggleDarkMode={toggleDarkMode} />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/about" element={<About />} />
+              <Route path="/projects/:id" element={<ProjectDetails />} />
             </Routes>
           </Router>
         </div>

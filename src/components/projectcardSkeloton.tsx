@@ -1,6 +1,6 @@
 export const ProjectCardSkeloton = () => {
     return (
-        <div className="bg-white dark:bg-gray-800  rounded-xl shadow-lg overflow-hidden h-full">
+        <div className="bg-white dark:bg-gray-800  rounded-xl max-w-sm shadow-lg overflow-hidden h-full">
             {/* Image placeholder */}
             <div className="bg-gray-300 dark:bg-gray-600 h-48 w-full" />
 

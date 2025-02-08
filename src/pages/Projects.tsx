@@ -65,7 +65,7 @@ function Projects() {
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-nowrap truncate">{project.description}</p>
+{/*                   <p className="text-gray-600 dark:text-gray-400 mb-4 text-nowrap truncate">{project.description}</p> */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.slice(0, 3).map((tech, index) => (
                       <span key={index} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">

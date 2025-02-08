@@ -108,9 +108,7 @@ function ProjectDetails() {
                                 <GraduationCap className="w-8 h-8 text-blue-600" />
                                 <h2 className="text-2xl font-bold">Description</h2>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                                {project.description}
-                            </p>
+                           <p dangerouslySetInnerHTML={{ __html: project.description }} />
                         </div>
                     </>
                 ) : (

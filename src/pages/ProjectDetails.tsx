@@ -11,7 +11,7 @@ function ProjectDetails() {
     const { allProject } = useSelector((state) => state.data);
     const { getAllProject } = useFetchData()
     const [project, setProject] = useState(null)
-
+    const parser = new DOMParser();
 
     useEffect(() => {
         if (allProject.length === 0) {
@@ -112,6 +112,7 @@ function ProjectDetails() {
                             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                                 {parse(project.description)}
                             </p>
+
                         </div>
                     </>
                 ) : (

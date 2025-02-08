@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import ProjectCardSkeloton from "../components/projectcardSkeloton";
 import { useEffect, useState } from "react";
 import useFetchData from "../hooks/UseFetchdata";
+import parse from 'html-react-parser';
 
 function ProjectDetails() {
     const { id } = useParams();
@@ -109,7 +110,7 @@ function ProjectDetails() {
                                 <h2 className="text-2xl font-bold">Description</h2>
                             </div>
                             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                                {project.description}
+                                {parse(project.description)}
                             </p>
                         </div>
                     </>

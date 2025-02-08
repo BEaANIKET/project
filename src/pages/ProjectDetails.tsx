@@ -10,7 +10,7 @@ function ProjectDetails() {
     const { allProject } = useSelector((state) => state.data);
     const { getAllProject } = useFetchData()
     const [project, setProject] = useState(null)
-
+    const parser = new DOMParser();
 
     useEffect(() => {
         if (allProject.length === 0) {
@@ -108,7 +108,7 @@ function ProjectDetails() {
                                 <GraduationCap className="w-8 h-8 text-blue-600" />
                                 <h2 className="text-2xl font-bold">Description</h2>
                             </div>
-                           <p dangerouslySetInnerHTML={{ __html: project.description }} />
+                            <p>{parser.parseFromString(project.description, "text/html").body.textContent}</p>
                         </div>
                     </>
                 ) : (

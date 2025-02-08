@@ -29,7 +29,7 @@ import {
   Cuboid,
   Copy,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import aniketlogo from '/aniket.png'
 import useFetchData from './hooks/UseFetchdata.tsx'
@@ -96,6 +96,7 @@ function App({ darkMode, setDarkMode, toggleDarkMode }) {
     project: false,
     resume: false,
   })
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -324,7 +325,7 @@ function App({ darkMode, setDarkMode, toggleDarkMode }) {
             <AnimatedSection>
               <h2 className="text-3xl font-bold text-center mb-16">Technical Expertise</h2>
             </AnimatedSection>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:gap-8 gap-2  ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:gap-2 gap-2  ">
               {[
                 {
                   icon: <Layout className="w-8 h-8 text-blue-600" />,
@@ -368,7 +369,7 @@ function App({ darkMode, setDarkMode, toggleDarkMode }) {
                 }
               ].map((skill, index) => (
                 <AnimatedSection key={index} className="h-full">
-                  <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-6 rounded-xl shadow-lg h-full transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <div className="bg-gray-50 dark:bg-gray-800 p-1 lg:p-6 rounded-xl shadow-lg h-full transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-gray-100 dark:hover:bg-gray-700">
                     {/* Icon Section */}
                     <div className="mb-4 flex justify-center">
                       {skill.icon}
@@ -409,19 +410,20 @@ function App({ darkMode, setDarkMode, toggleDarkMode }) {
               {projects && projects.length ? projects.map((project) => (
                 <div key={project._id} className="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden h-full">
                   <img
+                    onClick={() => navigate(`/projects/${project._id}`)}
                     src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 text-nowrap truncate">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech, index) => (
+                      {project.technologies.slice(0, 3).map((tech, index) => (
                         <span key={index} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">
                           {tech}
                         </span>
-                      ))}
+                      ))} ...
                     </div>
                     <div className="flex gap-4">
                       <a onClick={() => navigateTo(project.githubLink)} className="flex items-center gap-2 text-blue-600 hover:text-blue-700">

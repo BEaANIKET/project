@@ -18,11 +18,9 @@ function About() {
     }
   }, [])
 
-
-
   return (
     <div className="min-h-screen   bg-gray-50 dark:bg-gray-900 pt-10 dark:text-white">
-      <div className=" mx-auto px-6 py-12">
+      <div className="container mx-auto px-6 py-12">
         <Link
           to="/"
           className="inline-flex sticky top-10 items-center gap-2 text-blue-600 hover:text-blue-700 mb-8"
